@@ -13,26 +13,27 @@ export const RestaurantContextProvider = ({children}) => {
     const retrieveRestaurants = () => {
         setIsLoading(true);
         setTimeout(() => {
-            restaurantsRequest().then(restaurantsTransform).then((results) => {
+            restaurantsRequest().then(restaurantsTransform)
+            .then((results) => {
                 setIsLoading(false);
                 setRestaurants(results);
                 
             }).catch((err) => {
-                setError(err);
                 setIsLoading(false);
+                setError(err);
+                
             })
         }, 2000)
     };
     useEffect(() =>{
         retrieveRestaurants()
     },[])
-    console.log(restaurants);
     return(
         <RestaurantContext.Provider 
         value={{
             restaurants,
             isLoading,
-            error
+            error,
             }}>
             {children}
         </RestaurantContext.Provider>
