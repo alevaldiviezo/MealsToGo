@@ -11,17 +11,17 @@ export const RestaurantsNavigator = () => {
 
     return(
         <RestaurantStack.Navigator 
-        headerMode='none'
-        
         >
             <RestaurantStack.Screen
             name = 'Restaurants'
             component = {RestaurantsScreen}
+            options={{headerShown:false}}
             />
 
             <RestaurantStack.Screen
             name = 'RestaurantDetail'
             component = {RestaurantDetailScreen}
+
             />
         </RestaurantStack.Navigator>
     )
