@@ -43,8 +43,12 @@ export const AppNavigator = () => {
         tabBarInactiveTintColor: 'gray',
         }}
         >
-        <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-        <Tab.Screen name="Maps" component={MapScreen}/>
+        <Tab.Screen name="Restaurants" component={RestaurantsNavigator} 
+        options={{headerShown:false}}
+        />
+        <Tab.Screen name="Maps" component={MapScreen}
+        options={{headerShown:false}}
+        />
         <Tab.Screen name="Settings" component={Settings} />
         </Tab.Navigator>
       </NavigationContainer>
