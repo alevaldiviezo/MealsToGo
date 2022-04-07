@@ -6,8 +6,7 @@ import { RestaurantInfoCard } from "../components/restaurant-info-card";
 import {Spacer} from '../../../components/spacer/spacer.component';
 import { SafeArea } from '../../../components/utility/safe-area-component';
 
-import { RestaurantContext } from "../../../services/restaurants/restaurants.context";
-import { isLoading } from "expo-font";
+import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import {Search} from '../components/search.component';
 
 
@@ -30,7 +29,7 @@ left:50%;
 
 export const RestaurantsScreen = ({navigation}) => {
 
-    const {isLoading, error, restaurants} = useContext(RestaurantContext);
+    const {isLoading, error, restaurants} = useContext(RestaurantsContext);
     return(
         
         <SafeArea>

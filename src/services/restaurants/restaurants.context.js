@@ -3,7 +3,7 @@ import { LocationContext } from "../location/location.context";
 
 import { restaurantsRequest, restaurantsTransform } from "./restaurants.service";
 
-export const RestaurantContext = createContext();
+export const RestaurantsContext = createContext();
 
 export const RestaurantContextProvider = ({children}) => {
 
@@ -35,17 +35,17 @@ export const RestaurantContextProvider = ({children}) => {
             // console.log(location);
         const locationString = `${location.lat},${location.lng}`;
         retrieveRestaurants(locationString);
-        console.log(locationString);
+        // console.log(locationString);
         }
     },[location])
     return(
-        <RestaurantContext.Provider 
+        <RestaurantsContext.Provider 
         value={{
             restaurants,
             isLoading,
             error,
             }}>
             {children}
-        </RestaurantContext.Provider>
+        </RestaurantsContext.Provider>
     )
 }

@@ -4,7 +4,7 @@ import styled from "styled-components/native";
 import { Search } from "../components/search.component";
 
 import { LocationContext } from "../../../services/location/location.context";
-import { RestaurantContext } from "../../../services/restaurants/restaurants.context";
+import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import {MapCallOut} from '../components/map-callout.component';
 
 const Map = styled(MapView)`
@@ -15,7 +15,7 @@ const Map = styled(MapView)`
 export const MapScreen = ({navigation}) => {
 
     const {location} = useContext(LocationContext);
-    const {restaurants =[]}= useContext(RestaurantContext);
+    const {restaurants =[]}= useContext(RestaurantsContext);
 
     const [latDelta, setLatDelta] = useState(0);
 

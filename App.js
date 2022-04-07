@@ -14,6 +14,7 @@ import { theme } from './src/infraStructure/theme';
 import {SafeArea} from './src/components/utility/safe-area-component';
 import { RestaurantContextProvider } from './src/services/restaurants/restaurants.context';
 import { LocationContextProvider } from './src/services/location/location.context';
+import {FavouritesContextProvider } from './src/services/favourites/favourites.context'
 import { Navigation } from './src/infraStructure/navigation';
 
 
@@ -36,11 +37,13 @@ export default function App() {
   return (
     <>
     <ThemeProvider theme={theme}>
+    <FavouritesContextProvider>
     <LocationContextProvider>
       <RestaurantContextProvider>
         <Navigation/>
       </RestaurantContextProvider>
     </LocationContextProvider>
+    </FavouritesContextProvider>
     </ThemeProvider>
     
     <ExpoStatusBar style='auto'/>
