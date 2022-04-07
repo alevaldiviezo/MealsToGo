@@ -11,7 +11,7 @@ padding-top:10px;
 
 
 
-export const Search = () => {
+export const Search = ({ isFavouritesToggled, onFavouritesToggle }) => {
 
     
     
@@ -24,6 +24,8 @@ export const Search = () => {
     return(
     <SearchContainer>
         <Searchbar
+        icon={isFavouritesToggled ? "heart" : "heart-outline"}
+        onIconPress={onFavouritesToggle}
         placeholder='Search for a location'
         value={searchKeyword}
         onSubmitEditing={() =>{
