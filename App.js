@@ -17,6 +17,7 @@ import {SafeArea} from './src/components/utility/safe-area-component';
 import { RestaurantContextProvider } from './src/services/restaurants/restaurants.context';
 import { LocationContextProvider } from './src/services/location/location.context';
 import {FavouritesContextProvider } from './src/services/favourites/favourites.context'
+import { AuthenticationContextProvider } from './src/services/authentication/authentication.context';
 import { Navigation } from './src/infraStructure/navigation';
 
 const firebaseConfig = {
@@ -39,21 +40,21 @@ const auth = getAuth(app);
 
 export default function App() {
 
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
   
-  useEffect(() => {
-    setTimeout(() => { 
-    signInWithEmailAndPassword(auth,'test@meal.com', 'test123')
+  // useEffect(() => {
+  //   setTimeout(() => { 
+  //   signInWithEmailAndPassword(auth,'test@meal.com', 'test123')
       
-      .then((user) => {
-        console.log(user);
-        setIsAuthenticated(true);
-      })
-      .catch((e) => {
-        console.log(e);
-      })
-    }, 3000);
-    }, [])
+  //     .then((user) => {
+  //       console.log(user);
+  //       setIsAuthenticated(true);
+  //     })
+  //     .catch((e) => {
+  //       console.log(e);
+  //     })
+  //   }, 3000);
+  //   }, [])
   
   // const isAndroid = Platform.OS === 'android';
   const [oswaldLoaded] = useOswald({
@@ -71,6 +72,7 @@ export default function App() {
   return (
     <>
     <ThemeProvider theme={theme}>
+    <AuthenticationContextProvider>
     <FavouritesContextProvider>
     <LocationContextProvider>
       <RestaurantContextProvider>
@@ -78,6 +80,7 @@ export default function App() {
       </RestaurantContextProvider>
     </LocationContextProvider>
     </FavouritesContextProvider>
+    </AuthenticationContextProvider>
     </ThemeProvider>
     
     <ExpoStatusBar style='auto'/>
