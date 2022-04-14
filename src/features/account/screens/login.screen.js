@@ -5,6 +5,7 @@ import {
   AccountContainer,
   AuthButton,
   AuthInput,
+  Title
 } from "../components/account.styles";
 import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -18,6 +19,7 @@ export const LoginScreen = ({navigation}) => {
   return (
     <AccountBackground>
       <AccountCover />
+      <Title>Meals To Go</Title>
       <AccountContainer>
         <AuthInput
           label="E-mail"
@@ -34,7 +36,6 @@ export const LoginScreen = ({navigation}) => {
             textContentType="password"
             secureTextEntry
             autoCapitalize="none"
-            secure
             onChangeText={(p) => setPassword(p)}
           />
         </Spacer>
@@ -53,6 +54,11 @@ export const LoginScreen = ({navigation}) => {
           </AuthButton>
         </Spacer>
       </AccountContainer>
+        <Spacer size='large'>
+            <AuthButton mode='contained' onPress={() => navigation.goBack()}>
+                Back
+            </AuthButton>
+        </Spacer>
     </AccountBackground>
   );
 };

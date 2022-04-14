@@ -1,7 +1,7 @@
 import React from 'react';
 import { initializeApp } from 'firebase/app';
 
-import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
+import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword} from "firebase/auth";
 
 
 
@@ -33,4 +33,17 @@ export const loginRequest =  (email,password) => {
          })
          .catch(reject);
      })
-    }
+}
+
+export const registerRequest = (email, password) => {
+    const auth = getAuth();
+
+    
+    return new Promise((resolve,reject) => {
+        createUserWithEmailAndPassword(auth, email,password)
+        .then((res) => {
+            resolve(res);
+        })
+        .catch(reject);
+    }) 
+}
