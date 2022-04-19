@@ -1,7 +1,8 @@
 import React from 'react';
 import { initializeApp } from 'firebase/app';
 
-import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword} from "firebase/auth";
+import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut} from "firebase/auth";
+import { setStatusBarNetworkActivityIndicatorVisible } from 'expo-status-bar';
 
 
 
@@ -46,4 +47,29 @@ export const registerRequest = (email, password) => {
         })
         .catch(reject);
     }) 
+}
+
+export const authState = (usr) => {
+    const auth= getAuth();
+
+    return new Promise((resolve,reject) => {
+        onAuthStateChanged(auth, usr)
+        .then((res) => {
+            resolve(res);
+        })
+        .catch(reject);
+        
+    })
+    
+}
+
+export const logOut = () => {
+    const auth = getAuth();
+
+    return new Promise((resolve, reject) => {
+        signOut(auth)
+        .then((res) => {
+            resolve(res);
+        }).catch(reject);
+    })
 }
