@@ -8,7 +8,6 @@ import { RestaurantContextProvider} from '../../services/restaurants/restaurants
 import { LocationContextProvider } from '../../services/location/location.context';
 import {FavouritesContextProvider } from '../../services/favourites/favourites.context';
 import { SettingsNavigator } from './settings.navigator';
-import { SettingsScreen } from '../../features/settings/screens/settings.screen';
 
 const Tab = createBottomTabNavigator();
 
